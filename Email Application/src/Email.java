@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
 public class Email {
-	private String firstName;
-	private String lastName;
-	private String department;
+	private String fName;
+	private String lName;
+	private String dept;
 	private String password;
 	private String email;
-	private String alternateEmail;
-	private int mailBoxCapacity=500;
-	private int defaultPasswordLength = 10;
-	private String companySuffix="rjcompany.com";
+	private String altEmail;
+	private int mailBoxCapacity=2000;
+	private int defaultPasswordLength = 50;
+	private String companySuffix="company.com";
 
 	// Constructor to Generate Email
 	public Email(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.fName = firstName;
+		this.lName = lastName;
 		//System.out.println("Email Created: " + this.firstName + " " + this.lastName);
 		
 		// Call method to assign dept.
-		this.department = setDept();
+		this.dept = setDept();
 		//System.out.println("Assigned Department Code: " + this.department);
 		
 		// Call method to Assigned Default Password
@@ -26,13 +26,13 @@ public class Email {
 		System.out.println("Your Password: " + this.password);
 		
 		//Email Generation
-		this.email=firstName.toLowerCase()+lastName.toLowerCase()+"@"+department+"."+companySuffix;
+		this.email=fName.toLowerCase()+lName.toLowerCase()+"@"+dept+"."+companySuffix;
 		//System.out.println("Your Email Id is=> "+this.email);
 	}
 
 	//Method for assigning dept.
 	private String setDept() {
-		System.out.println("Hey "+this.firstName+"!! Select Your Department Code: ");
+		System.out.println("Hey "+this.fName+"!! Select Your Department Code: ");
 		System.out.println("A. IT Department");
 		System.out.println("B. Accounting");
 		System.out.println("C. Sales");
@@ -69,7 +69,7 @@ public class Email {
 	
 	//Set Alternate mailId
 	public void setAlternateEmail(String mail) {
-		this.alternateEmail=mail;
+		this.altEmail=mail;
 	}
 	
 	//Change password
@@ -82,7 +82,7 @@ public class Email {
 	}
 	
 	public String getAlternateEmail() {
-		return alternateEmail;
+		return altEmail;
 	}
 	
 	public String getPassword() {
@@ -91,7 +91,7 @@ public class Email {
 	
 	//Display details
 	public void showInfo() {
-		System.out.println("Name => " +this.firstName+" "+this.lastName
+		System.out.println("Name => " +this.fName+" "+this.lName
 				+"\nCompany Email => " +email+"\nMailBox Capacity => "+mailBoxCapacity+"mb");
 	}
 }
